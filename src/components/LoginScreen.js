@@ -1,19 +1,16 @@
-// import { AppRegistry } from 'react-native'
-// import App from './src/components/LoginScreen'
-
-// AppRegistry.registerComponent('AwesomeProject', () => App)
 import React, { Component } from 'react'
 import { View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
-import HomeScreen from './src/components/HomeScreen'
-import RegisterScreen from './src/components/RegisterScreen'
+import { createStackNavigator } from 'react-navigation'
+import HomeScreen from './HomeScreen'
+import RegisterScreen from './RegisterScreen'
 
 
 export class LoginScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.textfields}><TextInput style={styles.input}
+                <View style={styles.textfields}>
+                    <TextInput style={styles.input}
                         placeholder = "username"
                         returnKeyType = "next"
                         onSubmitEditing = {() => this.passwordInput.focus()}
@@ -32,9 +29,9 @@ export class LoginScreen extends Component {
                     </TouchableOpacity>
                     <Button
                     title = "Register Here"
-                    backgroundColor = "#1abc9c"
+                    color = "#1abc9c"
                     onPress = {() => this.props.navigation.navigate('Register')}
-                    />                     
+                    />
                 </View>
             </View>
         );
@@ -45,7 +42,7 @@ export class LoginScreen extends Component {
 export default class App extends Component{
     render(){
         return (
-            <AppContainer/>
+            <AppStackNavigator/>
         );
     }
 }
@@ -55,8 +52,6 @@ const AppStackNavigator = createStackNavigator({
     Register: RegisterScreen,
     Home: HomeScreen
 });
-
-const AppContainer = createAppContainer(AppStackNavigator);
 
 const styles = {
     container : {
@@ -80,13 +75,13 @@ const styles = {
     buttoncontainer : {
         height : 50,
         borderRadius : 50,
-        backgroundColor : '#1abc9c',
+        backgroundColor : '1abc9c',
         paddingVertical : 10,
         justifyContent : 'center'
     },
     buttontext : {
         textAlign : 'center',
-        color : '#ecf0f1',        
+        color : '#ecf0f1',
         fontSize : 20
     }
 }
