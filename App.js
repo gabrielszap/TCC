@@ -2,9 +2,11 @@
 // import App from './src/components/LoginScreen'
 
 // AppRegistry.registerComponent('AwesomeProject', () => App)
+
 import React, { Component } from 'react'
 import { View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
+
 import HomeScreen from './src/components/HomeScreen'
 import RegisterScreen from './src/components/RegisterScreen'
 
@@ -14,7 +16,7 @@ export class LoginScreen extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.textfields}><TextInput style={styles.input}
-                        placeholder = "username"
+                        placeholder = "E-mail"
                         returnKeyType = "next"
                         onSubmitEditing = {() => this.passwordInput.focus()}
                         keyboardType = "email-address"
@@ -22,19 +24,25 @@ export class LoginScreen extends Component {
                         autoCorrect = {false}
                     />
                     <TextInput style={styles.input}
-                        placeholder = "password"
+                        placeholder = "Senha"
                         returnKeyType = "go"
                         secureTextEntry
                         ref = {(input) => this.passwordInput = input}
                     />
-                    <TouchableOpacity style = {styles.buttoncontainer} onPress = {() => this.props.navigation.navigate('Home')}>
-                        <Text style = {styles.buttontext}>Login</Text>
+                    <TouchableOpacity style = {styles.buttonLoginContainer} onPress = {() => this.props.navigation.navigate('Home')}>
+                        <Text style = {styles.buttonLoginText}>Login</Text>
                     </TouchableOpacity>
-                    <Button
-                    title = "Register Here"
-                    backgroundColor = "#1abc9c"
+                    <TouchableOpacity style = {styles.buttonRegistrarContainer} onPress = {() => this.props.navigation.navigate('Register')}>
+                        <Text style = {styles.buttonRegistrarText}>Registrar-se</Text>
+                    </TouchableOpacity>
+                    
+                    {/* <Button
+                    
+                    title = "Registre-se Aqui"
+                    type = "clear"
+                    buttonStyle = {{marginTop : 20}}
                     onPress = {() => this.props.navigation.navigate('Register')}
-                    />                     
+                    />                      */}
                 </View>
             </View>
         );
@@ -77,16 +85,28 @@ const styles = {
         marginBottom : 20, 
         color : '#34495e'
     },
-    buttoncontainer : {
+    buttonLoginContainer : {
         height : 50,
         borderRadius : 50,
         backgroundColor : '#1abc9c',
         paddingVertical : 10,
         justifyContent : 'center'
     },
-    buttontext : {
+    buttonLoginText : {
         textAlign : 'center',
         color : '#ecf0f1',        
         fontSize : 20
+    },
+    buttonRegistrarContainer : {
+        height : 50,
+        borderRadius : 50,
+        backgroundColor : '#ecf0f1',
+        paddingVertical : 10,
+        justifyContent : 'center'
+    },
+    buttonRegistrarText : {
+        textAlign : 'center',
+        color : '#1abc9c',        
+        fontSize : 20,
     }
 }

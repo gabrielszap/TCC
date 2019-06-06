@@ -7,12 +7,12 @@ export default class RegisterScreen extends Component {
             <View style={styles.container}>
                 <View style={styles.registerform}>
                     <TextInput style={styles.input}
-                        placeholder="Enter your name"
+                        placeholder="Digite Seu Nome"
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
                     />
                     <TextInput style={styles.input}
-                        placeholder="Enter your email"
+                        placeholder="Digite Seu E-mail"
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
                         keyboardType="email-address"
@@ -21,7 +21,7 @@ export default class RegisterScreen extends Component {
                         ref={(input) => this.email = input}
                     />
                     <TextInput style={styles.input}
-                        placeholder="username"
+                        placeholder="Digite Sua Senha"
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
                         keyboardType="email-address"
@@ -29,7 +29,7 @@ export default class RegisterScreen extends Component {
                         autoCorrect={false}
                     />
                     <TouchableOpacity style={styles.buttoncontainer} onPress={() => this.props.navigation.navigate('Login')}>
-                        <Text style={styles.buttontext}>Sign Up</Text>
+                        <Text style={styles.buttontext}>Registrar</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -46,7 +46,7 @@ const styles = {
         alignItems: 'stretch'
     },
     registerform: {
-        marginTop: 50,
+        // marginTop: 30,
         justifyContent: 'center',
         alignItems: 'stretch'
     },
@@ -64,7 +64,7 @@ const styles = {
     buttoncontainer: {
         height: 50,
         borderRadius: 50,
-        backgroundColor: '1abc9c',
+        backgroundColor: '#1abc9c',
         paddingVertical: 10,
         justifyContent: 'center'
     },
