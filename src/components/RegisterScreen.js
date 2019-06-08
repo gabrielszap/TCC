@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
+import { Alert, View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
 
 export default class RegisterScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          username: '',
+          password: '',
+        };
+      }
+    onLogin() {
+        const { username, password } = this.state;
+    
+        Alert.alert(`${username} você foi registrado!`);
+        this.props.navigation.navigate('Login');
+    }    
     render() {
         return (
             <View style={styles.container}>
@@ -10,6 +23,8 @@ export default class RegisterScreen extends Component {
                         placeholder="Digite Seu Nome"
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
+                        value={this.state.username}
+                        onChangeText={(username) => this.setState({ username })}
                     />
                     <TextInput style={styles.input}
                         placeholder="Digite Seu E-mail"
@@ -27,8 +42,12 @@ export default class RegisterScreen extends Component {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         autoCorrect={false}
+                        value={this.state.password}
+                        onChangeText={(password) => this.setState({ password })}
                     />
-                    <TouchableOpacity style={styles.buttoncontainer} onPress={() => this.props.navigation.navigate('Login')}>
+                    <TouchableOpacity style={styles.buttoncontainer} onPress={this.onLogin.bind(this)} 
+                    // onPress={() => this.props.navigation.navigate('Login')}
+                    >
                         <Text style={styles.buttontext}>Registrar</Text>
                     </TouchableOpacity>
                 </View>
