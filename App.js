@@ -27,7 +27,7 @@ export class LoginScreen extends Component {
 
         if(this.state.loginUser == _validUser && 
            this.state.loginPassword == _validPassword){
-            this.props.navigation.navigate('Home')
+            this.props.navigation.replace('Home')
         }
         else{
             Alert.alert('Usuário e/ou senha inválido(s)');
@@ -59,7 +59,7 @@ export class LoginScreen extends Component {
                     onPress={this.onLogin.bind(this)}>
                         <Text style = {styles.buttonLoginText}>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style = {styles.buttonRegistrarContainer} onPress = {() => this.props.navigation.navigate('Register')}>
+                    <TouchableOpacity style = {styles.buttonRegistrarContainer} onPress = {() => this.props.navigation.replace('Register')}>
                         <Text style = {styles.buttonRegistrarText}>Registrar-se</Text>
                     </TouchableOpacity>
                     
