@@ -15,7 +15,7 @@ export class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          validUser :'Gabriel', 
+          validUser :'gabriel@mail.com', 
           validPassword :'teste',
           loginUser : '',
           loginPassword : '',
@@ -55,12 +55,12 @@ export class LoginScreen extends Component {
                         
                     />
                     <TouchableOpacity style = {styles.buttonLoginContainer} 
-                    // onPress = {() => this.props.navigation.navigate('Home')}
+                    // onPress = {() => this.props.navigation.navigate('Home')}>
                     onPress={this.onLogin.bind(this)}>
                         <Text style = {styles.buttonLoginText}>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style = {styles.buttonRegistrarContainer} onPress = {() => this.props.navigation.replace('Register')}>
-                        <Text style = {styles.buttonRegistrarText}>Registrar-se</Text>
+                    <TouchableOpacity style = {styles.buttonCadastrarContainer} onPress = {() => this.props.navigation.replace('Register')}>
+                        <Text style = {styles.buttonCadastrarText}>Cadastrar-se</Text>
                     </TouchableOpacity>
                     
                     {/* <Button
@@ -127,14 +127,14 @@ const styles = {
         color : '#ecf0f1',        
         fontSize : 20
     },
-    buttonRegistrarContainer : {
+    buttonCadastrarContainer : {
         height : 50,
         borderRadius : 50,
         backgroundColor : '#ecf0f1',
         paddingVertical : 10,
         justifyContent : 'center'
     },
-    buttonRegistrarText : {
+    buttonCadastrarText : {
         textAlign : 'center',
         color : '#1abc9c',        
         fontSize : 20,

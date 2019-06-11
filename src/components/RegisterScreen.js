@@ -12,7 +12,7 @@ export default class RegisterScreen extends Component {
     onLogin() {
         const { username, password } = this.state;
     
-        Alert.alert(`${username} você foi registrado!`);
+        Alert.alert(`${username} você foi cadastrado!`);
         this.props.navigation.navigate('Login');
     }    
     render() {
@@ -38,17 +38,19 @@ export default class RegisterScreen extends Component {
                     <TextInput style={styles.input}
                         placeholder="Digite Sua Senha"
                         returnKeyType="next"
-                        onSubmitEditing={() => this.passwordInput.focus()}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
                         keyboardType="email-address"
                         autoCapitalize="none"
                         autoCorrect={false}
                         value={this.state.password}
-                        onChangeText={(password) => this.setState({ password })}
+                        // onChangeText={(password) => this.setState({ password })}
+                        secureTextEntry
+                        ref = {(input) => this.passwordInput = input}
                     />
                     <TouchableOpacity style={styles.buttoncontainer} onPress={this.onLogin.bind(this)} 
                     // onPress={() => this.props.navigation.navigate('Login')}
                     >
-                        <Text style={styles.buttontext}>Registrar</Text>
+                        <Text style={styles.buttontext}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
             </View>

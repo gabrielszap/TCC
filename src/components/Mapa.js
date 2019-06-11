@@ -62,7 +62,7 @@ export default function() {
           longitude: -46.3238177,
           }}
           pinColor = {GerenteCores(20,12)}
-          />
+        />
 
         <MapView.Marker //Texto Pin Panificadora Vila Rica
           coordinate = {{
