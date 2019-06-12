@@ -7,7 +7,7 @@ export default class HomeScreen extends Component{
     //     super(props);
     //   }
     static navigationOptions = ({navigation}) => {
-        return {title : "Gabriel",
+        return {title : "Usuario",
         headerRight : (
             <TouchableOpacity  
                 style = {{paddingRight : 20}}

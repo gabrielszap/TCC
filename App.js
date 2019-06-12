@@ -15,8 +15,8 @@ export class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          validUser :'gabriel@mail.com', 
-          validPassword :'teste',
+          validUser :'usuario@mail.com', 
+          validPassword :'senha',
           loginUser : '',
           loginPassword : '',
         };
