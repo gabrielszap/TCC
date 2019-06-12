@@ -7,13 +7,20 @@ export default class RegisterScreen extends Component {
         this.state = {
           username: '',
           password: '',
+          email: '',
         };
       }
     onLogin() {
         const { username, password } = this.state;
-    
-        Alert.alert(`${username} você foi cadastrado!`);
-        this.props.navigation.navigate('Login');
+        if(username == "" || password == "" || email == ""){
+            Alert.alert('Erro! Preencha os campos!');
+            this.props.navigation.navigate('Login');
+        }
+        else{
+            Alert.alert(`${username} você foi cadastrado!`);
+            this.props.navigation.navigate('Login');
+        }
+        
     }    
     render() {
         return (
@@ -33,6 +40,7 @@ export default class RegisterScreen extends Component {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         autoCorrect={false}
+                        onChangeText={(email) => this.setState({ email })}
                         ref={(input) => this.email = input}
                     />
                     <TextInput style={styles.input}

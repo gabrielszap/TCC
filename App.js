@@ -59,7 +59,7 @@ export class LoginScreen extends Component {
                     onPress={this.onLogin.bind(this)}>
                         <Text style = {styles.buttonLoginText}>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style = {styles.buttonCadastrarContainer} onPress = {() => this.props.navigation.replace('Register')}>
+                    <TouchableOpacity style = {styles.buttonCadastrarContainer} onPress = {() => this.props.navigation.push('Register')}>
                         <Text style = {styles.buttonCadastrarText}>Cadastrar-se</Text>
                     </TouchableOpacity>
                     
