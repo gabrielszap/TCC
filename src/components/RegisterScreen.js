@@ -22,7 +22,7 @@ export default class RegisterScreen extends Component {
                     <TextInput style={styles.input}
                         placeholder="Digite Seu Nome"
                         returnKeyType="next"
-                        onSubmitEditing={() => this.passwordInput.focus()}
+                        onSubmitEditing={() => this.email.focus()}
                         value={this.state.username}
                         onChangeText={(username) => this.setState({ username })}
                     />
@@ -43,7 +43,7 @@ export default class RegisterScreen extends Component {
                         autoCapitalize="none"
                         autoCorrect={false}
                         value={this.state.password}
-                        // onChangeText={(password) => this.setState({ password })}
+                        onChangeText={(password) => this.setState({ password })}
                         secureTextEntry
                         ref = {(input) => this.passwordInput = input}
                     />

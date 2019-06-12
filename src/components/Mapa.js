@@ -73,8 +73,6 @@ export default function() {
           <Text>Panificadora Vila Rica</Text>
         </MapView.Marker>
 
-
-
       </MapView>
     )
   }
