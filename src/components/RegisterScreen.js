@@ -11,7 +11,7 @@ export default class RegisterScreen extends Component {
         };
       }
     onLogin() {
-        const { username, password } = this.state;
+        const { username, password, email } = this.state;
         if(username == "" || password == "" || email == ""){
             Alert.alert('Erro! Preencha os campos!');
             this.props.navigation.navigate('Login');
