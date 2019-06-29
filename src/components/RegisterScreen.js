@@ -7,13 +7,20 @@ export default class RegisterScreen extends Component {
         this.state = {
           username: '',
           password: '',
+          email: '',
         };
       }
     onLogin() {
-        const { username, password } = this.state;
-    
-        Alert.alert(`${username} você foi registrado!`);
-        this.props.navigation.navigate('Login');
+        const { username, password, email } = this.state;
+        if(username == "" || password == "" || email == ""){
+            Alert.alert('Erro! Preencha os campos!');
+            this.props.navigation.navigate('Login');
+        }
+        else{
+            Alert.alert(`${username} você foi cadastrado!`);
+            this.props.navigation.navigate('Login');
+        }
+        
     }    
     render() {
         return (
@@ -22,7 +29,7 @@ export default class RegisterScreen extends Component {
                     <TextInput style={styles.input}
                         placeholder="Digite Seu Nome"
                         returnKeyType="next"
-                        onSubmitEditing={() => this.passwordInput.focus()}
+                        onSubmitEditing={() => this.email.focus()}
                         value={this.state.username}
                         onChangeText={(username) => this.setState({ username })}
                     />
@@ -33,22 +40,25 @@ export default class RegisterScreen extends Component {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         autoCorrect={false}
+                        onChangeText={(email) => this.setState({ email })}
                         ref={(input) => this.email = input}
                     />
                     <TextInput style={styles.input}
                         placeholder="Digite Sua Senha"
                         returnKeyType="next"
-                        onSubmitEditing={() => this.passwordInput.focus()}
+                        // onSubmitEditing={() => this.passwordInput.focus()}
                         keyboardType="email-address"
                         autoCapitalize="none"
                         autoCorrect={false}
                         value={this.state.password}
                         onChangeText={(password) => this.setState({ password })}
+                        secureTextEntry
+                        ref = {(input) => this.passwordInput = input}
                     />
                     <TouchableOpacity style={styles.buttoncontainer} onPress={this.onLogin.bind(this)} 
                     // onPress={() => this.props.navigation.navigate('Login')}
                     >
-                        <Text style={styles.buttontext}>Registrar</Text>
+                        <Text style={styles.buttontext}>Cadastrar</Text>
                     </TouchableOpacity>
                 </View>
             </View>

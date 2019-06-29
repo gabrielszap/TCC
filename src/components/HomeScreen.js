@@ -3,14 +3,19 @@ import { View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
 import Mapa from './Mapa'
 
 export default class HomeScreen extends Component{
-    static navigationOptions = {
-        title : "Gabriel",
-        // headerRight : () => 
-        // <TouchableOpacity onPress={() => navigation.replace('Login') } >
-        //     <Text>LogOff</Text>
-        //   {/* <Ionicons name={'ios-notifications-outline'} size={26} /> */}
-        // </TouchableOpacity>
-        // ,
+    // constructor(props) {
+    //     super(props);
+    //   }
+    static navigationOptions = ({navigation}) => {
+        return {title : "Usuario",
+        headerRight : (
+            <TouchableOpacity  
+                style = {{paddingRight : 20}}
+                onPress= {() => navigation.replace('Login')} >
+                <Text> Log Off</Text>
+            </TouchableOpacity>
+        ),
+        };
     };
     render(){
         return(
