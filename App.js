@@ -1,5 +1,3 @@
-import App from "./src/components";
-export default App;
 // import { AppRegistry } from 'react-native'
 // import App from './src/components/LoginScreen'
 
@@ -11,92 +9,87 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 
 import HomeScreen from './src/components/HomeScreen'
 import RegisterScreen from './src/components/RegisterScreen'
+import LoginScreen from './src/components/LoginScreen'
 
 
-export class LoginScreen extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          validUser :'usuario@mail.com', 
-          validPassword :'senha',
-          loginUser : '',
-          loginPassword : '',
-        };
-      }
-    onLogin(){
-        const _validUser = this.state.validUser;
-        const _validPassword = this.state.validPassword;
+// export class LoginScreen extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//           validUser :'usuario@mail.com', 
+//           validPassword :'senha',
+//           loginUser : '',
+//           loginPassword : '',
+//         };
+//       }
+//     onLogin(){
+//         const _validUser = this.state.validUser;
+//         const _validPassword = this.state.validPassword;
 
-        if(this.state.loginUser == _validUser && 
-           this.state.loginPassword == _validPassword){
-            this.props.navigation.replace('Home')
-        }
-        else{
-            Alert.alert('Usuário e/ou senha inválido(s)');
-        }
+//         if(this.state.loginUser == _validUser && 
+//            this.state.loginPassword == _validPassword){
+//             this.props.navigation.replace('Home')
+//         }
+//         else{
+//             Alert.alert('Usuário e/ou senha inválido(s)');
+//         }
 
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.textfields}><TextInput style={styles.input}
-                        placeholder = "E-mail"
-                        returnKeyType = "next"
-                        onSubmitEditing = {() => this.passwordInput.focus()}
-                        keyboardType = "email-address"
-                        autoCapitalize = "none"
-                        autoCorrect = {false}
-                        onChangeText={(loginUser) => this.setState({ loginUser })}
-                    />
-                    <TextInput style={styles.input}
-                        placeholder = "Senha"
-                        returnKeyType = "go"
-                        secureTextEntry
-                        ref = {(input) => this.passwordInput = input}
-                        onChangeText={(loginPassword) => this.setState({ loginPassword })}
+//     }
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <View style={styles.textfields}><TextInput style={styles.input}
+//                         placeholder = "E-mail"
+//                         returnKeyType = "next"
+//                         onSubmitEditing = {() => this.passwordInput.focus()}
+//                         keyboardType = "email-address"
+//                         autoCapitalize = "none"
+//                         autoCorrect = {false}
+//                         onChangeText={(loginUser) => this.setState({ loginUser })}
+//                     />
+//                     <TextInput style={styles.input}
+//                         placeholder = "Senha"
+//                         returnKeyType = "go"
+//                         secureTextEntry
+//                         ref = {(input) => this.passwordInput = input}
+//                         onChangeText={(loginPassword) => this.setState({ loginPassword })}
                         
-                    />
-                    <TouchableOpacity style = {styles.buttonLoginContainer} 
-                    // onPress = {() => this.props.navigation.navigate('Home')}>
-                    onPress={this.onLogin.bind(this)}>
-                        <Text style = {styles.buttonLoginText}>Login</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style = {styles.buttonCadastrarContainer} onPress = {() => this.props.navigation.push('Register')}>
-                        <Text style = {styles.buttonCadastrarText}>Cadastrar-se</Text>
-                    </TouchableOpacity>
+//                     />
+//                     <TouchableOpacity style = {styles.buttonLoginContainer} 
+//                     // onPress = {() => this.props.navigation.navigate('Home')}>
+//                     onPress={this.onLogin.bind(this)}>
+//                         <Text style = {styles.buttonLoginText}>Login</Text>
+//                     </TouchableOpacity>
+//                     <TouchableOpacity style = {styles.buttonCadastrarContainer} onPress = {() => this.props.navigation.push('Register')}>
+//                         <Text style = {styles.buttonCadastrarText}>Cadastrar-se</Text>
+//                     </TouchableOpacity>
                     
-                    {/* <Button
+//                     {/* <Button
                     
-                    title = "Registre-se Aqui"
-                    type = "clear"
-                    buttonStyle = {{marginTop : 20}}
-                    onPress = {() => this.props.navigation.navigate('Register')}
-                    />                      */}
-                </View>
-            </View>
-        );
-    }
-}
+//                     title = "Registre-se Aqui"
+//                     type = "clear"
+//                     buttonStyle = {{marginTop : 20}}
+//                     onPress = {() => this.props.navigation.navigate('Register')}
+//                     />                      */}
+//                 </View>
+//             </View>
+//         );
+//     }
+// }
 
 
-export default class App extends Component{
+// export default class App extends Component{
     
-    render(){
-        return (
-            <AppContainer/>
-        );
-    }
-}
+//     render(){
+//         return (
+//             <AppContainer/>
+//         );
+//     }
+// }
 
 
 
-const AppStackNavigator = createStackNavigator({
-    Login: LoginScreen,
-    Register: RegisterScreen,
-    Home: HomeScreen
-});
 
-const AppContainer = createAppContainer(AppStackNavigator);
 
 const styles = {
     container : {
@@ -142,3 +135,13 @@ const styles = {
         fontSize : 20,
     }
 }
+
+const AppStackNavigator = createStackNavigator({
+    Login: LoginScreen,
+    Register: RegisterScreen,
+    Home: HomeScreen
+});
+
+const App = createAppContainer(AppStackNavigator);
+
+export default App;

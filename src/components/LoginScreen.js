@@ -5,13 +5,13 @@
 
 import React, { Component } from 'react'
 import { Alert, View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
+// import { createStackNavigator, createAppContainer } from 'react-navigation'
 
-import HomeScreen from './src/components/HomeScreen'
-import RegisterScreen from './src/components/RegisterScreen'
+// import HomeScreen from './src/components/HomeScreen'
+// import RegisterScreen from './src/components/RegisterScreen'
 
 
-export class LoginScreen extends Component {
+export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -77,24 +77,24 @@ export class LoginScreen extends Component {
 }
 
 
-export default class App extends Component{
+// export default class App extends Component{
     
-    render(){
-        return (
-            <AppContainer/>
-        );
-    }
-}
+//     render(){
+//         return (
+//             <AppContainer/>
+//         );
+//     }
+// }
 
 
 
-const AppStackNavigator = createStackNavigator({
-    Login: LoginScreen,
-    Register: RegisterScreen,
-    Home: HomeScreen
-});
+// const AppStackNavigator = createStackNavigator({
+//     Login: LoginScreen,
+//     Register: RegisterScreen,
+//     Home: HomeScreen
+// });
 
-const AppContainer = createAppContainer(AppStackNavigator);
+// const AppContainer = createAppContainer(AppStackNavigator);
 
 const styles = {
     container : {
@@ -139,4 +139,4 @@ const styles = {
         color : '#1abc9c',        
         fontSize : 20,
     }
-}
+};
