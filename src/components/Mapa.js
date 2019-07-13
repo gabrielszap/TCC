@@ -1,82 +1,91 @@
-import React from 'react'
-import { MapView } from 'expo'
-import { Text, View, StyleSheet } from 'react-native' 
+import React, {Component} from 'react'
+import { MapView, Permissions, Marker } from 'expo'
+import { Dimensions, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+
 import GerenteCores from './GerenteCores'
 
-
-export default function() {
-    return(
-      <MapView
-        style={{ flex: 1 }}
-        initialRegion={{
-          latitude: -23.9646387,
-          longitude: -46.3230136,
-          latitudeDelta: 0.0042,
-          longitudeDelta: 0.0031,
-        }}
-        customMapStyle={EstiloMapaCustomizado}
-      >
+const locations = require('../data/locations.json')
 
 
-        <MapView.Marker //Pin Seven King
-          title = 'Seven King'
-          coordinate = {{
-            latitude: -23.9649106,
-            longitude: -46.3222352,
-          }}
-          pinColor = {GerenteCores(20,2)}
-        />
 
-        <MapView.Marker //Texto Seven King
-          coordinate = {{
-            latitude: -23.9649106,
-            longitude: -46.3218,
-          }}
-        >
-          <Text>Seven King</Text>
-        </MapView.Marker>
+export default class Mapa extends Component{
+  state = {
+    latitude: null,
+    longitude: null,
+    locations: locations
+  } 
 
+  async componentDidMount(){
+    const { status } = await Permissions.getAsync(Permissions.LOCATION)
 
-        <MapView.Marker //Pin Subway
-          title = 'Subway'
-            coordinate = {{
-            latitude: -23.9642757,
-            longitude: -46.3231924,
-          }}
-          pinColor = {GerenteCores(20,18)}
-        />
-
-        <MapView.Marker //Texto Pin Subway
-          coordinate = {{
-            latitude: -23.9642757,
-            longitude: -46.3228924,
-          }}
-        >
-          <Text>Subway</Text>
-        </MapView.Marker>
-
-        <MapView.Marker // Pin Panificadora Vila Rica
-          title = 'Panificadora Vila Rica'
-          coordinate = {{
-            latitude: -23.9647329,
-          longitude: -46.3238177,
-          }}
-          pinColor = {GerenteCores(20,12)}
-        />
-
-        <MapView.Marker //Texto Pin Panificadora Vila Rica
-          coordinate = {{
-            latitude: -23.9647329,
-            longitude: -46.3231177,
-          }}
-        >
-          <Text>Panificadora Vila Rica</Text>
-        </MapView.Marker>
-
-      </MapView>
+    if (status !== 'granted') {
+      const response = await Permissions.askAsync(Permissions.LOCATION)
+    }
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => this.setState({ latitude, longitude } = () => this.state),
+      (error) => console.log('Error:', error)
     )
+
+    const { locations: [ sampleLocation ] } = this.state
+
+    // this.setState({
+    //   desLatitude: sampleLocation.coords.latitude,
+    //   desLongitude: sampleLocation.coords.longitude
+    // }, this.mergeCoords)
   }
 
+  renderMarkers = () => {
+    const { locations } = this.state
+    return (
+      <View>
+        {
+          locations.map((location, idx) => {
+            const {
+              coords: {  latitude, longitude }
+            } = location
+            return (
+              <Marker
+                key={idx}
+                // title = {{name}}
+                coordinate={{ latitude, longitude }}
+                // onPress={this.onMarkerPress(location)}
+                pinColor = {GerenteCores(20,2)}
+              />
+            )
+          })
+        }
+      </View>
+    )
+  }
+  render () {
+
+    const {
+      latitude,
+      longitude
+    } = this.location
+   
+      return(
+        
+        <MapView
+        showsUserLocation
+          style={{ flex: 1 }}
+          initialRegion={{
+            latitude,
+              longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
+          }}
+          customMapStyle={EstiloMapaCustomizado}
+        >
+          {this.renderMarkers()}
+          
+  
+        </MapView>
+        
+      )
+          
+    }
+}
 
 const EstiloMapaCustomizado = [
   {
@@ -89,3 +98,4 @@ const EstiloMapaCustomizado = [
     ]
   }
 ]
+

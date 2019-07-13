@@ -1,0 +1,29 @@
+[
+    {
+      "name": "Seven King",
+      "address": "R. Dr. Lobo Viana, 22 - Boqueirão, Santos - SP, 11045-120",
+      "coords": {
+        "latitude": -23.9649106,
+        "longitude": -46.3222352
+      },
+      "image_url": ""
+    },
+    {
+        "name": "Subway",
+        "address": "Av. Conselheiro Nébias, 679 - Boqueirão, Santos - SP, 11045-003",
+        "coords": {
+          "latitude": -23.9642757,
+          "longitude": -46.3231924
+        },
+        "image_url": ""
+      },
+      {
+        "name": "Panificadora Vila Rica",
+        "address": "R. Mato Grosso, 28 - sl 12 - Boqueirão, Santos - SP, 11055-011",
+        "coords": {
+          "latitude": -23.9647329,
+          "longitude": -46.3238177
+        },
+        "image_url": ""
+      }
+  ]

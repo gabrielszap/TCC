@@ -3,9 +3,9 @@ import { View, TextInput, Text, Button, TouchableOpacity } from 'react-native'
 import Mapa from './Mapa'
 
 export default class HomeScreen extends Component{
-    // constructor(props) {
-    //     super(props);
-    //   }
+    constructor(props) {
+        super(props);
+      }
     static navigationOptions = ({navigation}) => {
         return {title : "Usuario",
         headerRight : (
@@ -23,6 +23,7 @@ export default class HomeScreen extends Component{
             //     <Text style = {styles.text}>Welcome to HomeScreen</Text>
             // </View>
             <Mapa/>
+            
         );
     }
 }
